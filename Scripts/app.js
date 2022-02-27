@@ -200,14 +200,14 @@ class User
          let serviceImg = document.createElement("img");
          serviceImg.setAttribute("class" , "img-fluid");
          serviceImg.setAttribute("style", "width: 200px; height: 200px;");
-         serviceImg.src = `./images/project1.png`;
+         serviceImg.src= "./images/project1.png";
          document.getElementById("project1").appendChild(serviceImg);
 
             //image tag for the project 3
-            let webImg = document.createElement("img");
+            let webImg= document.createElement("img");
             webImg.setAttribute("class" , "img-fluid");
             webImg.setAttribute("style", "width: 200px; height: 250px;");
-            webImg.src = `./images/project3.png`;
+            webImg.src= "./images/project3.png";
             document.getElementById("project3").appendChild(webImg);
  
  
@@ -215,7 +215,7 @@ class User
          let umlImg = document.createElement("img");
          umlImg.setAttribute("class" , "img-fluid");
          umlImg.setAttribute("style", "width: 200px; height: 150px;");
-         umlImg.src = `./images/project2.png`;
+         umlImg.src="./images/project2.png";
          document.getElementById("project2").appendChild(umlImg);
    } 
 

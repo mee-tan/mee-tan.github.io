@@ -1,26 +1,97 @@
 /**
- * Name: Misha Mansoor and Hunter Lovering 
- * Date: 2022-06-02
- * Description: This javascript file is part of lab 1 for webd6201 course 
- * the purpose of this lab is to create nav bar and pages using the functionality of javascript 
+ * Name:            Misha Mansoor and Hunter Lovering  
+ * Student No:      100743787 , 100785761
+ * Date:            2022-06-02
+ * Description:     This javascript file is part of webd6201 labs  
+ * the purpose of this lab is to utilize javascript and jQuery to add the functionality to the 
+ * website using the Document Object Model  
  * 
  */
+//User class 
+class User
+{
+  //#region  Getters and Setters 
+  get FirstName()
+  {
+    return this.m_firstname;
+  }
+
+  set FirstName(firstName)
+  {
+    this.m_firstname = firstName;
+  }
+
+  get LastName()
+  {
+    return this.m_last_name;
+  }
+
+  set LastName(lastName)
+  {
+    this.m_last_name = lastName;
+  }
+
+  get EmailAddress()
+  {
+    return this.m_email_address;
+  }
+
+  set EmailAddress(emailAddress)
+  {
+    this.m_email_address = emailAddress;
+  }
+
+  get UserName()
+  {
+    return this.m_username;
+  }
+
+  set UserName(userName)
+  {
+    this.m_username = userName;
+
+  }
+
+  get Password()
+  {
+    return this.m_password;
+  }
+
+  set Password(password)
+  {
+    this.m_password = password;
+  }
+  //#endregion
+
+  //constructor 
+  constructor(firstName = "" , lastName = "", emailAddress = "", password = "")
+  {
+    this.FirstName = firstName;
+    this.LastName = lastName;
+    this.EmailAddress = emailAddress;
+    this.Password = password;
+  }
+
+  //To string function that displays the user class data members
+  toString()
+  {
+    return `FirstName    : ${this.FirstName}
+            \nLastName    : ${this.LastName}
+            \nEmailAddres : ${this.EmailAddress}
+            \nUsername    : ${this.UserName}
+            \nPassword    : ${this.Password}`;
+  }
+}
+//IIfe 
 (function()
 {
     /*
     *  This function demostrate the funtionality of the home page 
     */function DisplayHomePage()
     {
-        //adding image to the page by creating it programmatically 
-        let home = document.createElement("img");
-        home.setAttribute("class" , "img-fluid");
-        home.src = `./images/homepage.png`;
-        document.getElementById('imageDiv').appendChild(home);  
-
-
         //creating button and adding event handler so it redirects the user 
         // to the contact page where user can fill out the form  
-        document.getElementById('button').innerHTML += `<a id = "signUp" class = "btn btn-primary shadow btn btn-lg">Contact Us for More</a>`;
+        document.getElementById('button').innerHTML = `<a id = "signUp" class = "btn btn-primary shadow btn btn-lg">Contact Us for More</a>`;
         
         //when the button is click the user will be redirected to the contact page 
         // where user will have to fill out the contact form 
@@ -33,9 +104,9 @@
 
         //adding heading to the page using document.get element by id 
         document.getElementById('heading').innerHTML = ` 
-            <h1> Learn Coding for Free </h1>
+            <h1> Welcome to Webd6201 Labs </h1>
             <h2 class = "p-0">
-                    Access a new career today
+                   with Misha and Hunter 
                 <br/> 
             </h2>`;
 
@@ -124,7 +195,6 @@
            </p> 
          </li>
        </ul>`;
-       
 
          //image tag for the project 1 
          let serviceImg = document.createElement("img");
@@ -148,6 +218,10 @@
          umlImg.src = `./images/project2.png`;
          document.getElementById("project2").appendChild(umlImg);
    } 
+
+
+
+
     /*
     *this function is for the services page fuctionality 
     */function DisplayServicesPage(){
@@ -182,11 +256,7 @@
 
 
         //creating page header and paragraph
-        document.getElementById('header').innerHTML = `<h3> Our Services</h3> 
-        <p class = "center content-inner"><strong> we offer a solid introduction 
-        to the fundamentals of web devleopment from beginners to advaced and a great concept of object oriented programming, and a solid 
-        hands on experience in uml diagrmming which is taught by one of the great instructors of our team so dont wait and sign-up today for free 
-        </strong></p> `;
+        document.getElementById('header').innerHTML = `<h3> Our Services</h3> `;
 
         //add list of skills 
         document.getElementById('list').innerHTML = 
@@ -255,9 +325,7 @@
 
           //adding heading to the page 
           document.getElementById('heading').innerHTML = 
-          `<h1 style="line-height: 1.3;">
-          <strong> Hey Meet Our Team</strong>
-          </h1>
+          `
             <h2 class = "p-0">
             Misha Mansoor
             <br/> 
@@ -267,9 +335,7 @@
           document.getElementById('description').innerHTML= 
           `<p style = "font-size: 18px; text-align: center;">
           "Hey my name is Misha Mansoor, and I am a computer programming student at 
-          Durham College, I like to help people get handas on experience in computer progarmminhg
-          by hosting free coding classes where people can get benefit from without even have to 
-          spend wonders on coding courses "
+          Durham College, my student id is 100742787"
           </p>`; 
 
           //image tag for Misha 
@@ -291,16 +357,13 @@
             document.getElementById('hdiscription').innerHTML = `
               <h2  class = "p-0">
               Hunter Lovering
-              <br/> 
               </h2>`; 
 
               //hunter's bio 
           document.getElementById('hpara').innerHTML = 
           `<p style = "font-size: 18px; text-align: center;">
           "Hey my name is Hunter Lovering, and I am a computer programming student at 
-          Durham College, I like to help people get handas on experience in computer progarmminhg
-          by hosting free coding classes where people can get benefit from without even have to 
-          spend wonders on coding courses "
+          Durham College, my student id is  100785761 "
           </p>`; 
 
 
@@ -324,6 +387,8 @@
       */
      function DisplayHumanResourcesPage()
      {
+
+        console.log("human");
          //image tag for hr 
          let Img = document.createElement("img");
          Img.setAttribute("class" , "img-fluid");
@@ -346,9 +411,8 @@
         document.getElementById("about").before(li); 
     } 
 
-      function DisplayContactUsPage()
-      {
-
+    function DisplayContactUsPage()
+    {
          //changing the link of the products to projects 
          document.getElementById("productsLink").innerHTML = "  Projects";
          let icon = document.createElement("i");
@@ -371,12 +435,163 @@
          document.getElementById("about").after(li);
 
 
-         //adding the heading to the page 
-         document.getElementById('heading').innerHTML = `<h3>Contact Us
-         </h3>`;
+         //when the button is clicked send user to the index page 
+        let button  = document.getElementById("sendButton");
+        button.addEventListener("click", function()
+        {
 
+          var fullName = document.getElementById("fullName");
+          var contactNumber = document.getElementById("contactNumber");
+          var email = document.getElementById("emailAddress");
+          var message = document.getElementById("message");
+          console.log("FullName: " +  fullName.value +
+                      "ContactNumber" + contactNumber.value +
+                      "Email Address " + email.value +
+                      "message" + message.value);
+              setTimeout( location.href = "index.html", 3000);
 
+        });
+      
+    }
+
+    /*
+    * function login page that displays the functionality of the login page 
+    *
+    */function DisplayLoginPage()
+    {
+        console.log("Login");
+
+        let submitButton = document.getElementById("submitButton");
+        let userName = document.getElementById("contactName");
+        submitButton.addEventListener("click", function(event)
+        {
+          event.preventDefault();
+
+          //if the username textbox is not empty 
+          if(userName.value !== "")
+          {
+            // create a anchor tag with a navlink 
+            // to add the username textbox value into the nav bar 
+            var a = document.createElement('a');
+            a.setAttribute("class", "nav-link");
+            //adding the value of username textbox in the navbar 
+            a.innerHTML = userName.value;
+            //inserting the value of the textbox after the contact page link 
+            document.getElementById("about").after(a);
+            document.getElementById("login").innerHTML = " Logout";
+            let icon = document.createElement("i");
+            icon.setAttribute("class" , "fas fa-user");
+            document.getElementById("login").prepend(icon);
+          }
+
+        });
+
+         //changing the link of the products to projects 
+         document.getElementById("productsLink").innerHTML = "  Projects";
+         let icon = document.createElement("i");
+         icon.setAttribute("class" , "fas fa-th");
+         document.getElementById("productsLink").prepend(icon);
+    }
+
+    function ValidateField(input_field_ID, regular_expression, error_message)
+    {
+        let errorMessage = $("#ErrorMessage").hide();
+        
+        $("#" + input_field_ID).on("blur", function()
+        {
+            let inputFieldText = $(this).val();
+
+            if(!regular_expression.test(inputFieldText))
+            {
+                $(this).trigger("focus").trigger("select"); 
+                errorMessage.addClass("alert alert-danger").text(error_message).show(); 
+            }
+            else
+            {
+              errorMessage.removeAttr("class").hide();
+            }
+        });
+    }
+
+    function ContactFormValidation()
+    {
+      //firstname validation , lastname, emailAddress and password validation 
+        ValidateField("FirstName", /^[a-z0-9]{2,16}$/,"Please enter a valid First Name.");
+
+        ValidateField("lastName", /^[a-z0-9]{2,16}$/,"Please enter a valid last Name.");
+
+        ValidateField("emailAddress", /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/, "Please enter a valid Email Address.");
+        
+        ValidateField("password", /^[a-z0-9]{6,}$/, "Password must be 6 character long");
       }
+
+    
+
+    function ValidateConfirmPassword()
+    {
+      //error message div id 
+      let messageArea = $("#ErrorMessage");
+      //confirm password textbox id
+      let confirm_pass = $("#confirmPassword").val();
+      //password textbox id
+      let password_value = $("#password").val();
+      //if the password and confirm password textbox value are not same 
+      if (password_value != confirm_pass )
+      {
+        //doesnt pass the Regex
+        $("#confirmPassword").trigger("focus"); //go back to the password textbox 
+        $("#confirmPassword").trigger("select"); //select all the text in the textbox 
+        messageArea.show(); // shows the message area
+        messageArea.addClass("alert alert-danger"); //add the alert to the div 
+        messageArea.text("password doesnt match, it should be 6 character long"); // changes the text value
+        messageArea.show(); 
+        return false;
+      }
+      else
+      {
+      //does pass the Regex 
+      messageArea.removeAttr("class");
+      messageArea.hide();
+      }
+    }
+
+    function DisplayRegisterPage()
+    {
+      console.log("Register");
+
+      //firstname, lastname, email and password validation
+      ContactFormValidation();
+      //password and confirm password equal validation 
+      $('#ErrorMessage').hide();
+      $('#confirmPassword').on("blur",function(){
+      ValidateConfirmPassword();
+    });
+
+    
+      //using jquery accessing the submit button 
+      let submitButton = document.getElementById("submitButton");
+      //submit button click event 
+      submitButton.addEventListener("click", function(event)
+      {
+        //preventing the submit button default behavior 
+        event.preventDefault();
+
+        //when submit button is clicked create instance of user class and displays 
+        //the value of the user data members in the console 
+        if(submitButton.addEventListener("click", function()
+        {
+          let user = new User(FirstName.value, lastName.value, emailAddress.value, password.value)
+          console.log(user.toString());
+        }));
+         
+      });
+
+       //changing the link of the products to projects 
+       document.getElementById("productsLink").innerHTML = "  Projects";
+       let icon = document.createElement("i");
+       icon.setAttribute("class" , "fas fa-th");
+       document.getElementById("productsLink").prepend(icon);
+    }
     // named function option
 
     /**
@@ -386,6 +601,7 @@
      */
     function Start()
     {
+      console.log("App started");
         switch(document.title)
         {
             case "Home":
@@ -403,8 +619,11 @@
             case "Contact":
                 DisplayContactUsPage();
                 break;
-            case "Human Resources":
-                DisplayHumanResourcesPage();
+            case "Login":
+                DisplayLoginPage();
+                break;
+            case "Register":
+                DisplayRegisterPage();
                 break;
 
         }

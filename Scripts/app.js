@@ -328,7 +328,7 @@
           messageArea.removeAttr("class").hide();
 
           // redirect user to secure area - contact-list.html
-          location.href = "/contact-list";
+          location.href = "/index";
         }
         else
         {

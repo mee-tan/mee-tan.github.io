@@ -404,7 +404,7 @@
         //add task-list page 
         $(`<li class="nav-item">
         <a id="task-list" class="nav-link" aria-current="page"><i class="fa-solid fa-list-check"></i> Task List</a>
-      </li>`).insertAfter("#loginListItem");
+      </li>`).insertBefore("#loginListItem");
       }
       else
       {
@@ -493,7 +493,6 @@
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
-        window.prompt(taskInput.value);
 
         // add a new Task to the Task List
         $("#newTaskButton").on("click", function()

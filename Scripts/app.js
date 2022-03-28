@@ -404,7 +404,7 @@
         //add task-list page 
         $(`<li class="nav-item">
         <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Task List</a>
-      </li>`).insertAfter("#contact-list");
+      </li>`).insertAfter("#loginListItem");
       }
       else
       {

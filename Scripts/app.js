@@ -403,7 +403,7 @@
 
         //add task-list page 
         $(`<li class="nav-item">
-        <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-maps fa-lg"></i> Task List</a>
+        <a id="task-list" class="nav-link" aria-current="page"><i class="fa-solid fa-list-check"></i> Task List</a>
       </li>`).insertAfter("#loginListItem");
       }
       else
@@ -457,7 +457,7 @@
     {
       let messageArea = $("#messageArea");
       messageArea.hide();
-      let taskInput = $("#taskText");
+      let taskInput = $("#taskTextInput");
 
       if (taskInput.val() != "" && taskInput.val().charAt(0) != " ") 
       {
@@ -488,6 +488,8 @@
      */
     function DisplayTaskList()
     {
+
+        authGuard();
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");

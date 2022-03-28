@@ -491,6 +491,7 @@
         let messageArea = $("#messageArea");
         messageArea.hide();
         let taskInput = $("#taskTextInput");
+        window.prompt(taskInput.value);
 
         // add a new Task to the Task List
         $("#newTaskButton").on("click", function()

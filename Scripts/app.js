@@ -382,6 +382,12 @@
         `<a id="logout" class="nav-link" aria-current="page"><i class="fas fa-sign-out-alt"></i> Logout</a>`
         );
 
+        //add task-list page 
+        $(`<li class="nav-item">
+        <a id="task-list" class="nav-link" aria-current="page"><i class="fas fa-users fa-lg"></i> Task List</a>
+      </li>`).insertAfter("#loginListItem");
+
+
         $("#logout").on("click", function()
         {
           // perform logout

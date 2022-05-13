@@ -6,102 +6,79 @@
  * using AJAX, JQuery and JavaScript
  * 
 */
-
-
 "use strict";
 // Contact Class
+namespace core
+{
+  export class Contact
+  {
+    //private instant members 
+    private m_fullName: string;
+    private m_contactNumber: string;
+    private m_emailAddress: string;
 
-((core)=>{
-  class Contact {
     // getters and setters
-    get FullName() 
+    public get FullName() 
     {
       return this.m_fullName;
     }
   
-    set FullName(value) 
+    public set FullName(value) 
     {
       this.m_fullName = value;
     }
   
-    get ContactNumber() 
+    public get ContactNumber() 
     {
       return this.m_contactNumber;
     }
   
-    set ContactNumber(value) 
+    public set ContactNumber(value) 
     {
       this.m_contactNumber = value;
     }
   
-    get EmailAddress() 
+    public get EmailAddress() 
     {
       return this.m_emailAddress;
     }
   
-    set EmailAddress(value) 
+    public set EmailAddress(value) 
     {
       this.m_emailAddress = value;
     }
   
-    // constructor
-
     /**
+     * a default constructor
      * @param {string} fullName 
      * @param {string} contactNumber 
      * @param {string} emailAddress 
      */
-    constructor(fullName = "", contactNumber = "", emailAddress = "") 
+    constructor(fullName: string = "", contactNumber: string = "", emailAddress: string = "") 
     {
-      this.FullName = fullName;
-      this.ContactNumber = contactNumber;
-      this.EmailAddress = emailAddress;
+      this.m_fullName = fullName;
+      this.m_contactNumber = contactNumber;
+      this.m_emailAddress = emailAddress;
     }
 
-    // methods
 
     /**
      * This method overrides the built-in toString method for the Contact class
-     *
+     * @override ovverrids the built-in toString method 
      * @returns {string}
      */
-    toString() 
+    toString() : string 
     {
       return `Full Name     : ${this.FullName} \nContact Number: ${this.ContactNumber}\nEmail Address : ${this.EmailAddress}`;
     }
 
     /**
-     * This method returns a JSON object made up of the properties of the Contact class
-     *
-     * @returns {Object}
-     */
-    toJSON()
-    {
-      return {
-        "FullName": this.FullName,
-        "ContactNumber": this.ContactNumber,
-        "EmailAddress": this.EmailAddress
-      }
-    }
-
-    /**
-     * This method takes a JSON data object and assigns the values to the Contact class properties
-     *
-     * @param {Object} data
-     */
-    fromJSON(data)
-    {
-      this.FullName = data.FullName;
-      this.ContactNumber = data.ContactNumber;
-      this.EmailAddress = data.EmailAddress;
-    }
-
-    /**
-     * This method converts the Contact into a comma-separated value string
+     * This method converts the Contact into a comma-separated string
      *
      * @returns {string}
+     * @returns {null} 
      */
-    serialize()
+    serialize() : string | null
     {
       if(this.FullName !== "" && this.ContactNumber !== "" && this.EmailAddress !== "")
       {
@@ -120,7 +97,7 @@
      * @param {string} data
      * @return {void}
      */
-    deserialize(data)
+    deserialize(data : string) : void // return void and is of type string 
     {
       let propertyArray = data.split(",");
       this.FullName = propertyArray[0];
@@ -129,8 +106,4 @@
     }
   }
 
-  core.Contact = Contact;
-
-})(core || (core={}));
-
-
+}

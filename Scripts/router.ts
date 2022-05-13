@@ -104,7 +104,7 @@ namespace core
     }
 }
 
-let router = new core.Router();
+let router : core.Router = new core.Router();
 router.AddTable(["/", 
                  "/home", 
                  "/about", 
@@ -118,7 +118,7 @@ router.AddTable(["/",
                  "/task-list"
                 ]);
                 
-let route = location.pathname; // alias for location.pathname
+let route : string = location.pathname; // alias for location.pathname
 
 if(router.Find(route) > -1)
 {

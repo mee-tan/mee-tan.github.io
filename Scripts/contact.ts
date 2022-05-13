@@ -18,17 +18,17 @@ namespace core
     private m_emailAddress: string;
 
     // getters and setters
-    public get FullName() 
+    public get FullName() : string
     {
       return this.m_fullName;
     }
   
-    public set FullName(value) 
+    public set FullName(value)
     {
       this.m_fullName = value;
     }
   
-    public get ContactNumber() 
+    public get ContactNumber() : string
     {
       return this.m_contactNumber;
     }
@@ -38,7 +38,7 @@ namespace core
       this.m_contactNumber = value;
     }
   
-    public get EmailAddress() 
+    public get EmailAddress() : string
     {
       return this.m_emailAddress;
     }

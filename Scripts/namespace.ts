@@ -7,4 +7,6 @@
  * 
 */
 // namespace core
-let core;
+namespace core{
+    
+}

@@ -1,0 +1,25 @@
+// to view the commands in the json file first 
+// add {} brackets then inside the brackets press 
+// Ctrl + Space for complier options 
+
+// use the Typescriptlang.org in playground then tsconfig to use as a 
+// checklist 
+{
+   "compilerOptions": {
+       "target": "ES2022",
+       "module": "CommonJS",
+       "sourceMap": true,
+       "removeComments": true,
+       "strict": true,
+       "noImplicitAny": true,
+       "strictNullChecks": true,
+       "strictFunctionTypes": true,
+       "strictBindCallApply" : true,
+       "strictPropertyInitialization": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noImplicitReturns": true
+   },
+   "exclude": ["node_modules"]
+   
+}
